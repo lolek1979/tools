@@ -1,0 +1,9 @@
+{
+	"folders": [
+		{
+			"name": "docker-k8s",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
