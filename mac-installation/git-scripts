@@ -1,0 +1,79 @@
+✅ Step 1: Create the Scripts
+
+Let’s create a folder for your custom git scripts (optional, but tidy):
+
+mkdir -p ~/.git-tools
+
+Now create these files:
+
+⸻
+
+~/.git-tools/gclone
+
+#!/bin/bash
+# Usage: gclone user@repo OR full git@github.com:user/repo.git
+
+if [[ "$1" == *"@"* && "$1" != *"git@"* ]]; then
+  echo "Assuming shorthand format. Expanding to git@github.com:$1.git"
+  git clone "git@github.com:$1.git"
+else
+  git clone "$1"
+fi
+
+~/.git-tools/gpull
+
+#!/bin/bash
+# Usage: gpull
+
+git pull origin $(git rev-parse --abbrev-ref HEAD)
+
+
+⸻
+
+~/.git-tools/gpush
+
+#!/bin/bash
+# Usage: gpush "your commit message"
+
+if [ -z "$1" ]; then
+  echo "⚠️  Please provide a commit message."
+  exit 1
+fi
+
+git add .
+git commit -m "$1"
+git push origin $(git rev-parse --abbrev-ref HEAD)
+
+
+⸻
+
+✅ Step 2: Make the Scripts Executable
+
+chmod +x ~/.git-tools/gclone
+chmod +x ~/.git-tools/gpull
+chmod +x ~/.git-tools/gpush
+
+✅ Step 3: Add Aliases to .bashrc or .zshrc
+
+Add this to the bottom of your ~/.zshrc or ~/.bashrc:
+
+alias gclone="~/.git-tools/gclone"
+alias gpull="~/.git-tools/gpull"
+alias gpush="~/.git-tools/gpush"
+
+Then reload your shell config:
+
+source ~/.zshrc   # or source ~/.bashrc
+
+✅ Usage Examples
+
+gclone lolek1979/tools          # shorthand
+gclone git@github.com:lolek1979/tools.git
+
+cd tools
+gpull
+
+# Do some work...
+
+gpush "add terraform files"
+
