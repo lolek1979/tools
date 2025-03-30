@@ -1,0 +1,79 @@
+🛠️ 1. System & Security Setup
+	•	✅ Enable FileVault: System Settings > Privacy & Security > FileVault (encrypts your drive)
+	•	✅ Enable Touch ID + Apple Watch Unlock
+	•	✅ iCloud + Find My Mac: Sync your stuff and track your Mac if lost
+	•	✅ Set up Time Machine for backups
+
+⸻
+
+💻 2. Terminal Power-Up
+	•	iTerm2 – Better terminal with profiles, themes
+brew install --cask iterm2
+	•	Oh My Zsh – Makes your shell prettier and smarter
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	•	Powerlevel10k theme – Great prompt with git/status/context
+brew install romkatv/powerlevel10k/powerlevel10k
+
+⸻
+
+🧑‍💻 3. Dev Essentials (You Already Use)
+brew install \
+  git \
+  jq \
+  wget \
+  node \
+  pyenv \
+  nvm \
+  docker \
+  helm \
+  kubectl \
+  minikube \
+  kubectx \
+  kubens \
+  derailed/k9s/k9s
+
+  🧠 4. VS Code + Extensions
+
+You already got the list, but don’t forget:
+	•	Python
+	•	YAML
+	•	Docker
+	•	Kubernetes
+	•	GitLens
+	•	Jenkinsfile Support
+	•	GitHub Copilot (optional, limited free tier)
+
+🧰 5. Developer Utilities
+	•	Postman / Insomnia – Test APIs
+	•	TablePlus / DBeaver – GUI for databases
+	•	Raycast – Spotlight on steroids
+brew install --cask raycast
+	•	Rectangle – Window snapping
+brew install --cask rectangle
+
+📱 6. Apple Ecosystem Integration
+	•	Turn on Handoff, Universal Clipboard, Messages, AirDrop
+	•	Sync iCloud Drive, Photos, Safari tabs
+	•	Use iPhone as webcam in Zoom/Teams/FaceTime
+	•	Set up Shortcuts app for automations
+
+📂 7. File & System Management
+	•	DaisyDisk or Disk Inventory X – Visualize storage
+	•	CleanShot X or built-in Screenshot tool – For screen recording + edits
+	•	The Unarchiver – Handles all compressed file types
+
+⸻
+
+🔐 8. Optional: Security Tools
+	•	1Password / Bitwarden – Password manager
+	•	Little Snitch / LuLu – Network monitor/firewall (optional)
+
+⸻
+
+🛠 Bonus Dev Tips:
+	•	Use .editorconfig to unify formatting in YAML, JSON, Bash, Python
+	•	Set up ~/.bash_aliases or ~/.zshrc with:
+
+alias k=kubectl
+alias kns=kubens
+alias kctx=kubectx
